@@ -3,5 +3,6 @@
 ## Usage
 
 ```
+meteor npm install
 meteor
 ```
