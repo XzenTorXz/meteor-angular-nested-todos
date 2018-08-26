@@ -1,0 +1,8 @@
+<div class="task">
+  <input type="text" [(ngModel)]="task.content" (change)="update(task)" />
+  <button (click)="delete(task._id)" class="deleteBtn">✘</button>
+  <button (click)="add(task._id)" class="addBtn">➕</button>
+  <div class="tasklist childs" *ngFor="let child of childs | async">
+    <todo-task [task]="child"></todo-task>
+  </div>
+</div>

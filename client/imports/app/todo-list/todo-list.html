@@ -1,0 +1,4 @@
+<button (click)="addTodo()" class="addBtn">➕</button>
+<div class="tasklist" *ngFor="let todo of todos | async">
+  <todo-task [task]="todo"></todo-task>
+</div>
