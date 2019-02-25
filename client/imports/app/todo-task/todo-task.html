@@ -1,7 +1,9 @@
-<div class="task">
-  <input type="text" [(ngModel)]="task.content" (change)="update(task)" />
-  <button (click)="delete(task._id)" class="deleteBtn">✘</button>
+<div class="task" [class.today]="task.today" [class.done]="task.checked">
+  <input type="text" [(ngModel)]="task.content" (change)="update(task)" [class.done]="task.checked" />
+  <button (click)="toogleChecked(task)">✓</button>
   <button (click)="add(task._id)" class="addBtn">➕</button>
+  <button (click)="delete(task._id)" class="deleteBtn">✘</button>
+  <button (click)="toggleTogday(task)" class="star">☆</button>
   <div class="tasklist childs" *ngFor="let child of childs | async">
     <todo-task [task]="child"></todo-task>
   </div>

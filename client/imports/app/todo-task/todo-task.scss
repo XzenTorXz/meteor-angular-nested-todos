@@ -7,3 +7,11 @@
 .tasklist{
   padding-left: 20px;
 }
+.done{
+  text-decoration: line-through;
+}
+.today{
+  .star{
+    color: yellow;
+  }
+}

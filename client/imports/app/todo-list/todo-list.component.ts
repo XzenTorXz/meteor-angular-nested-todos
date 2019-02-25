@@ -11,17 +11,22 @@ import { Todo } from '../../../../imports/models/todo';
 
 @Component({
   selector: 'todo-list',
-  templateUrl: 'todo-list.html',
-  styleUrls: ['todo-list.scss']
+  templateUrl: './todo-list.html',
+  // styleUrls: ['./todo-list.scss']
 })
 export class TodoListComponent implements OnInit, OnDestroy {
   todos: Observable<Todo[]>;
+  todostoday: Observable<Todo[]>;
   todoListSubscription: Subscription;
+  hideDone: boolean = false;
 
   ngOnInit() {
     this.todoListSubscription = MeteorObservable.subscribe('todoList').subscribe(() => {
       this.todos = Todos.find({
         parent: null
+      });
+      this.todostoday = Todos.find({
+        today: true
       });
     });
   }
@@ -31,7 +36,11 @@ export class TodoListComponent implements OnInit, OnDestroy {
       this.todoListSubscription.unsubscribe();
     }
   }
-  addTodo(){
+  addTodo() {
     Meteor.call('addTodo', "new task", null);
+  }
+  toggleDone() {
+    this.hideDone = !this.hideDone;
+    console.log(this.hideDone);
   }
 }

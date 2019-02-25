@@ -1,0 +1,8 @@
+{
+    "galaxy.meteor.com": {
+        "env": {
+            "MONGO_URL": "localhost",
+            "ROOT_URL": "todo.esichain.de"
+        }
+    }
+}

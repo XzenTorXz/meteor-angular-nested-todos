@@ -12,8 +12,8 @@ import { Todo } from 'imports/models/todo';
 
 @Component({
   selector: 'todo-task',
-  templateUrl: 'todo-task.html',
-  styleUrls: ['todo-task.scss'],
+  templateUrl: './todo-task.html',
+  styleUrls: ['./todo-task.scss'],
   inputs: ['task']
 })
 export class TodoTaskComponent implements OnInit {
@@ -44,6 +44,12 @@ export class TodoTaskComponent implements OnInit {
   }
   add(id: string) {
     Meteor.call('addTodo', "new task", id);
+  }
+  toogleChecked(task){
+    Meteor.call('updateTodo', task._id, task.content, !task.checked, task.today);
+  }
+  toggleTogday(task){
+    Meteor.call('updateTodo', task._id, task.content, task.checked, !task.today);
   }
 
 }

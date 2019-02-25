@@ -18,9 +18,13 @@ Meteor.methods({
       parent: _id
     });
   },
-  updateTodo(_id: string, content: string) {
+  updateTodo(_id: string, content: string, checked: boolean = false, today: boolean = false) {
     Todos.update(_id, {
-        $set: { content: content }
+        $set: { 
+          content: content,
+          checked: checked,
+          today: today
+        }
     })
   }
 })

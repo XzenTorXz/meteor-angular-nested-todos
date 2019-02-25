@@ -1,4 +1,10 @@
+<h2>Today</h2>
+<div class="tasklist" *ngFor="let todo of todostoday | async">
+  <todo-task [task]="todo"></todo-task>
+</div>
+<h2>Todos</h2>
 <button (click)="addTodo()" class="addBtn">➕</button>
-<div class="tasklist" *ngFor="let todo of todos | async">
+<button (click)="toggleDone()" class="addBtn">hide</button>
+<div class="tasklist" [class.hideDone]="hideDone" *ngFor="let todo of todos | async">
   <todo-task [task]="todo"></todo-task>
 </div>
