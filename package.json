@@ -24,7 +24,7 @@
     "rxjs": "^6.5.2",
     "rxjs-compat": "^6.5.2",
     "semver": "^5.7.0",
-    "underscore": "^1.9.1",
+    "underscore": "^1.12.1",
     "zone.js": "^0.8.29"
   },
   "devDependencies": {
